@@ -1,0 +1,53 @@
+<div class="row">
+<table class="table table-hover">
+  <tbody>
+      <tr>
+        <th>名前</th>
+        <th><%= @user.name %></th>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <th><%= @user.email %></th>
+      </tr>
+      <tr>
+        <th>登録日時</th>
+        <th><%= @user.created_at.strftime("%Y-%m-%d %H:%M") %></th>
+      </tr>
+      <tr>
+        <th>更新日時</th>
+        <th><%= @user.updated_at.strftime("%Y-%m-%d %H:%M") %></th>
+      </tr>
+  </tbody>
+</table>
+</div>
+
+<div>
+<% if current_user == @user %>
+  <%= link_to '編集',edit_user_path, class: 'btn btn-primary mr-3' %>
+  <%= link_to '削除',@user,method: :delete,data: { confirm: "タスク「#{@user.name}」を削除します。よろしいですか？" },class: 'btn btn-danger' %>
+<% end %>
+</div>
+
+<div>
+
+<h3 class="mt-5">始めたプロジェクト</h3>
+</div>
+<% @projects.each do |project| %>
+<div class="col-md-4">
+  <div class="project_box">
+    <ul>
+      <div class="box1">
+      <li><%= link_to project.user.name, project.user,class: 'h3' %></li>
+      <li><%= link_to project.title, project,class: 'h3' %></li>
+    </div>
+      <li class="list"><%= project.created_at.strftime("%Y-%m-%d") %></li>
+      <div class="box2">
+      <% if current_user == project.user %>
+        <li><%= link_to '編集',edit_project_path(project),class: 'btn btn-primary mt-2' %></li>
+        <li><%= link_to '削除',project,method: :delete,data: { confirm: "タスク「#{project.title}」を削除します。よろしいですか？" },class: 'btn btn-danger mt-2' %></li>
+      <% end %>
+    </div>
+    </ul>
+  </div>
+</div>
+<% end %>

@@ -1,0 +1,22 @@
+<h1>Projects#index</h1>
+<div class="row">
+  <% @projects.each do |project| %>
+  <div class="col-md-4">
+    <div class="project_box">
+      <ul>
+        <div class="box1">
+          <li><%= link_to project.user.name, project.user,class: 'h3' %></li>
+          <li ><%= link_to project.title, project,class: 'h3' %></li>
+        </div>
+        <li class="list"><%= project.created_at.strftime("%Y-%m-%d") %></li>
+        <div class="box2">
+          <% if current_user == project.user %>
+            <li><%= link_to '編集',edit_project_path(project),class: 'btn btn-primary mt-2' %></li>
+            <li><%= link_to '削除',project,method: :delete,data: { confirm: "タスク「#{project.title}」を削除します。よろしいですか？" },class: 'btn btn-danger mt-2' %></li>
+          <% end %>
+        </div>
+      </ul>
+    </div>
+  </div>
+  <% end %>
+</div>

@@ -1,0 +1,14 @@
+<h1>編集画面</h1>
+
+<%= form_with model: @project, local: true do |f| %>
+ <div class="form-group">
+    <%= f.label :title, '名称' %>
+    <%= f.text_field :title, class: 'form-control',id: 'project_title' %>
+ </div>
+ <div class="form-group">
+    <%= f.label :body, '詳しい説明' %>
+    <%= f.text_area :body, row: 5, class: 'form-control',id: 'project_body' %>
+ </div>
+
+ <%= f.submit nil,class: 'btn btn-primary' %>
+ <% end %>

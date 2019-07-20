@@ -1,0 +1,15 @@
+current directory: /Users/sugitamasatoshi/life_app/vendor/bundle/gems/bindex-0.8.1/ext/skiptrace
+/Users/sugitamasatoshi/.rbenv/versions/2.5.3/bin/ruby -r ./siteconf20190715-97597-1vxem3f.rb extconf.rb
+creating Makefile
+
+current directory: /Users/sugitamasatoshi/life_app/vendor/bundle/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" clean
+
+current directory: /Users/sugitamasatoshi/life_app/vendor/bundle/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR="
+compiling cruby.c
+linking shared-object skiptrace/internal/cruby.bundle
+
+current directory: /Users/sugitamasatoshi/life_app/vendor/bundle/gems/bindex-0.8.1/ext/skiptrace
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 cruby.bundle ./.gem.20190715-97597-1nivm8k/skiptrace/internal
