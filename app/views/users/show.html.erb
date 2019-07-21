@@ -29,25 +29,35 @@
 </div>
 
 <div>
-
-<h3 class="mt-5">始めたプロジェクト</h3>
+  <h3 class="mt-5">始めたプロジェクト</h3>
 </div>
-<% @projects.each do |project| %>
-<div class="col-md-4">
-  <div class="project_box">
-    <ul>
-      <div class="box1">
-      <li><%= link_to project.user.name, project.user,class: 'h3' %></li>
-      <li><%= link_to project.title, project,class: 'h3' %></li>
-    </div>
-      <li class="list"><%= project.created_at.strftime("%Y-%m-%d") %></li>
-      <div class="box2">
-      <% if current_user == project.user %>
-        <li><%= link_to '編集',edit_project_path(project),class: 'btn btn-primary mt-2' %></li>
-        <li><%= link_to '削除',project,method: :delete,data: { confirm: "タスク「#{project.title}」を削除します。よろしいですか？" },class: 'btn btn-danger mt-2' %></li>
+
+<div class="album py-5 bg-light">
+  <div class="container">
+    <div class="row">
+      <% @projects.each do |project| %>
+      <div class="col-md-4">
+        <div class="project_box">
+          <ul>
+            <div class="box1">
+              <li><%= link_to project.user.name, project.user,class: 'h3' %></li>
+              <li><%= link_to project.title, project,class: 'h3' %></li>
+            </div>
+            <li class="list"><%= project.created_at.strftime("%Y-%m-%d") %></li>
+            <div class="box2">
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <% if current_user == project.user %>
+                  <%= link_to '編集',edit_project_path(project),class: 'btn btn-sm btn-primary mt-2' %>
+                  <%= link_to '削除',project,method: :delete,data: { confirm: "タスク「#{project.title}」を削除します。よろしいですか？" },class: 'btn btn-sm btn-danger mt-2' %>
+                  <% end %>
+                </div>
+              </div>
+            </div>
+          </ul>
+        </div>
+      </div>
       <% end %>
     </div>
-    </ul>
   </div>
 </div>
-<% end %>

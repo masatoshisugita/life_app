@@ -14,15 +14,15 @@
       <div class="navbar-brand"><%= link_to 'LifeApp',root_path %></div>
 
       <ul class="navbar-nav ml-auto">
-        <li class="nav-item"><%= link_to 'さがす',projects_path,  class: 'nav-link' %></li>
+        <li class="nav-item nav-link"><%= link_to 'さがす',projects_path %></li>
 
         <% if current_user %>
           <li class="nav-item nav-link"><%= link_to 'つくる',new_project_path %></li>
           <li class="nav-item nav-link"><%= link_to current_user.name,current_user %></li>
           <li class="nav-item"><%= link_to 'ログアウト',logout_path, method: :delete, class: 'nav-link' %></li>
         <% else %>
-          <li class="nav-item"><%= link_to '新規作成',new_user_path, class: 'nav-link' %></li>
-          <li class="nav-item"><%= link_to 'ログイン',login_path, class: 'nav-link' %></li>
+          <li class="nav-item nav-link"><%= link_to 'ユーサー登録',new_user_path %></li>
+          <li class="nav-item nav-link"><%= link_to 'ログイン',login_path %></li>
         <% end %>
       </ul>
     </div>

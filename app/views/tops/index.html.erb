@@ -1,2 +1,73 @@
-<h1>Tops#index</h1>
-<p>説明をかく</p>
+<main role="main">
+
+      <section class="jumbotron text-center mt-4">
+        <div class="container">
+          <h1 class="jumbotron-heading">LifeAppとは</h1>
+          <p class="lead text-muted">病気と闘っている方に、直接経済的に支援するプラットフォームです。ユーザー登録をするだけで、支援したいユーザーにお金を送ることができます。あなたのお金で困っている方を支えてみませんか？</p>
+          <p>
+            <% if current_user %>
+              <%= link_to 'つくる',new_project_path, class: 'btn btn-primary my-2' %>
+              <%= link_to 'さがす',projects_path,  class: 'btn btn-secondary my-2' %>
+            <% else %>
+              <%= link_to 'ユーサー登録',new_user_path, class: 'btn btn-primary my-2' %>
+              <%= link_to 'ログイン',login_path, class: 'btn btn-secondary my-2' %>
+            <% end %>
+          </p>
+        </div>
+      </section>
+
+      <div class="album py-5 bg-light">
+        <h1 class="alubum-title">例</h1>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6">
+              <div class="card mb-4 box-shadow">
+                <%= image_tag('holland-4093234_1920.jpg', :class =>"card-img-top") %>
+                <div class="card-body">
+                  <p class="card-text">30代で胃がんが見つかりました。治療費で100万円がかかります。宜しければみなさんご協力お願いします。</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card mb-4 box-shadow">
+                <%= image_tag('japanese-cherry-trees-324175_1920.jpg', :class =>"card-img-top") %>
+                <div class="card-body">
+                  <p class="card-text">娘（中学3年生）が白血病になりました。皆様の協力が欲しいです。</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card mb-4 box-shadow">
+                <%= image_tag('abendstimmung-4315445_1920.jpg', :class =>"card-img-top") %>
+                <div class="card-body">
+                  <p class="card-text">健康診断で脳に異常が見つかった40代男性です。LifeAppを使うのは初めてですが、よろしくお願いします。</p>
+
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-6">
+              <div class="card mb-4 box-shadow">
+                <%= image_tag('meadow-4320155_1920.jpg', :class =>"card-img-top") %>
+                <div class="card-body">
+                  <p class="card-text">アメリカで頭の手術をすることになってしまいました。保険が使えないので皆様の協力が必要です。よろしくお願いします。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a href="#">Back to top</a>
+        </p>
+        <p>Album example is &copy; Bootstrap, but please download and customize it for yourself!</p>
+        <p>New to Bootstrap? <a href="../../">Visit the homepage</a> or read our <a href="../../getting-started/">getting started guide</a>.</p>
+      </div>
+    </footer>
