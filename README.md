@@ -5,28 +5,37 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* 使い方
 
-* System dependencies
+  git cloneでファイルをダウンロード
 
-* Configuration
+  ```
+  https://github.com/masatoshisugita/life_app.git
+  ```
 
-* Database creation
+  dockerの中にrubyやpostgresのイメージがなければdocker pullコマンドで、Docker hubから持ってくる
 
-  $ docker-compose run web bundle exec rails db:create
+  ```
+  docker pull ruby:2.5.3
+  docker pull postgres
+  ```
+  dockerのimageを作成
 
-* Database initialization
+  ```
+  docker-compose build
+  ```
 
-* How to run the test suite
+  dbを作成し、migrateする
 
-* Services (job queues, cache servers, search engines, etc.)
+  ```
+  docker-compose run web rails db:create
+  docker-compose run web rails db:migrate
+  ```
 
+  コンテナを起動
 
-$ docker-compose up で起動
-
-$ docker-compose run web bundle ~ で動かせる
-
-
-* Deployment instructions
-
-* ...
+  ```
+  docker-compose up
+  ```
+  
+  ブラウザでlocalhost:3000にアクセスでtopページが開く
