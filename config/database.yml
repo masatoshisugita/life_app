@@ -19,10 +19,10 @@ default: &default
   encoding: unicode
   # For details on connection pooling, see Rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
-  username: postgres
+  username: sugitamasatoshi
   password:
   pool: 5
-  host: db
+  host: localhost
 
 development:
   <<: *default
